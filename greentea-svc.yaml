@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: twowayssl
+  name: twowayssl
+  namespace: rhelnginx
+spec:
+  ports:
+  - name: 443-tcp
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: twowayssl
+    deploymentconfig: twowayssl
+status:
+  loadBalancer: {}
+
